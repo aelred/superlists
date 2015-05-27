@@ -16,10 +16,10 @@ class MyListsTest(FunctionalTest):
         session.save()
         ## to set a cookie we need to first visit the domain.
         ## 404 pages load the quickest!
-        self.browser.get(self.sever_url + "/404_no_such_url/")
+        self.browser.get(self.server_url + "/404_no_such_url/")
         self.browser.add_cookie(dict(
             name=settings.SESSION_COOKIE_NAME,
-            value=sessions.session_key,
+            value=session.session_key,
             path='/',
         ))
 

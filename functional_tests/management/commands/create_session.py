@@ -10,8 +10,8 @@ class Command(BaseCommand):
     def add_argument(self, parser):
         parser.add_argument('email')
 
-    def handle(self, email, *args, **kwargs):
-        session_key = create_pre_authenticated_session(email)
+    def handle(self, *args, **options):
+        session_key = create_pre_authenticated_session(options['email'])
         self.stdout.write(session_key)
 
 
